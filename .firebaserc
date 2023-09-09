@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ecm23-96d3c": {
+      "hosting": {
+        "ecm": [
+          "ecm23-96d3c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ecm23-96d3c"
+  }
+}
