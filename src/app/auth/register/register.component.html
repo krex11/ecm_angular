@@ -1,1 +1,20 @@
-<p>register works!</p>
+<div class="login-page">
+    <mat-card class="login_card">
+      <mat-card-content>Registration</mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="col-12 col-lg-12 col-md-12 col-xl-12 text-box" appearance="outline">
+            <input matInput placeholder="Username" formControlName="email" required>
+            <div class="form-text text-danger" *ngIf="email && email.invalid && email.touched">Please enter valid email</div>
+          </mat-form-field>
+          
+          <mat-form-field class="col-12 col-lg-12 col-md-12 col-xl-12 text-box" appearance="outline">
+            <input matInput type="password" placeholder="Password" formControlName="password" required>
+          
+        </mat-form-field>
+        
+        <button class="log-btn" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">SignUp</button>
+      </form>
+    </mat-card>
+    </div>
+    
+    

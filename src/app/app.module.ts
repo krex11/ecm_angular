@@ -11,14 +11,19 @@ import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MaterialModule} from './material/material.module';
+
+import { AuthService } from './auth/auth.service';
+//firebase module
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import {AngularFireModule}from '@angular/fire/compat'
+import {AngularFireAuthModule}from '@angular/fire/compat/auth'
+
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage'
 
-//firebase module
 
 @NgModule({
   declarations: [
@@ -36,13 +41,15 @@ import { provideStorage,getStorage } from '@angular/fire/storage'
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

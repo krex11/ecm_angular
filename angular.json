@@ -36,8 +36,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -103,8 +103,11 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "version": 2,
-            "browserTarget": "ecm:build:production"
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ecm:build:production",
+            "firebaseProject": "ecm23-96d3c",
+            "firebaseHostingSite": "ecm23-96d3c"
           }
         }
       }

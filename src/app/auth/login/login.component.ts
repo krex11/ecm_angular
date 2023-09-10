@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,23 +9,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
+  loginForm=new FormGroup({
+    email: new FormControl('',[Validators.required, Validators.email]),
+    password: new FormControl('',[Validators.required,Validators.minLength(8)])
+  })
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private authser:AuthService,private route:Router) { }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+   
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      // Implement your login logic here
-      const username = this.loginForm.value.username;
-      const password = this.loginForm.value.password;
-      // Example: send a request to an authentication API
-    }
+    this.authser.signIn(this.loginForm.value.email,this.loginForm.value.password).then((res)=>{
+      this.route.navigate(['home']);
+      console.log('success')
+    })
+    console.log(this.loginForm.value)
+  }
+
+  get email(){
+    return this.loginForm.get('email')
+  }
+  get password(){
+    return this.loginForm.get('password')
   }
 }
