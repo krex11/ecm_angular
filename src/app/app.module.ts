@@ -7,12 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MaterialModule} from './material/material.module';
 
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './shared/auth.service';
 //firebase module
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import {AngularFireModule}from '@angular/fire/compat'
@@ -30,7 +29,6 @@ import { provideStorage,getStorage } from '@angular/fire/storage'
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     DashboardComponent
   ],
   imports: [

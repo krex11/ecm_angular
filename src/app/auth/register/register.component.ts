@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../shared/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authser.signUp(this.loginForm.value.email,this.loginForm.value.password)
+    this.authser.signUp(this.loginForm.value.email as string,this.loginForm.value.password as string)
     console.log(this.loginForm.value)
   }
 

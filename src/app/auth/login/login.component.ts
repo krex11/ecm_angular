@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../shared/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,10 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authser.signIn(this.loginForm.value.email,this.loginForm.value.password).then((res)=>{
-      this.route.navigate(['home']);
-      console.log('success')
-    })
+    this.authser.signIn(this.loginForm.value.email as string ,this.loginForm.value.password as string)
     console.log(this.loginForm.value)
   }
 
