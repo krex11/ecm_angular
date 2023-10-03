@@ -1,6 +1,35 @@
-<mat-drawer-container class="example-container mt-4">
+
+<mat-drawer-container class="example-container">
+  <mat-toolbar>
+    <h1></h1>
+  </mat-toolbar>
   <mat-drawer mode="side" opened="true" color="black">
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+ 
+      <h2 >ECM</h2>
+    <mat-divider></mat-divider>
+    <div class="module-list">
+      <div class="col ">
+
+        <div class="btn" [routerLink]="['home']">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+          Home
+          <mat-divider></mat-divider>
+        </div>
+        <div class="btn" [routerLink]="['classview']">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="view_compact"></mat-icon>
+          classview
+          <mat-divider></mat-divider>
+        </div>
+        <div class="btn" [routerLink]="['history']">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="history"></mat-icon>
+          History
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+
+    </div>
   </mat-drawer>
-<router-outlet></router-outlet>
+  <div class="main-wrapper">
+    <router-outlet></router-outlet>
+  </div>
 </mat-drawer-container>

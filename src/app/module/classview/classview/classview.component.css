@@ -1,0 +1,15 @@
+.mat-mdc-card{
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    background-color: #63afa6 !important;
+    max-width: 70% !important;
+    height: 10rem !important;
+    margin: 1rem;
+}
+
+.card-row{
+
+}
+.cls-card{
+    padding: 0.5rem !important;
+    min-width: 30rem;
+}
